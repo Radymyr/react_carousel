@@ -53,15 +53,9 @@ class App extends React.Component<{}, State> {
     const MIN_WIDTH = 10;
 
     if (!isNaN(newWidth)) {
-      this.setState({ itemWidth: newWidth });
-    }
+      const clampedWidth = Math.max(MIN_WIDTH, Math.min(newWidth, MAX_WIDTH));
 
-    if (newWidth > MAX_WIDTH) {
-      this.setState({ itemWidth: MAX_WIDTH });
-    }
-
-    if (newWidth < MIN_WIDTH) {
-      this.setState({ itemWidth: MIN_WIDTH });
+      this.setState({ itemWidth: clampedWidth });
     }
   };
 
