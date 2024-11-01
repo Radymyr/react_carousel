@@ -23,12 +23,7 @@ const Carousel: React.FC<Props> = ({
   const items = images.map(image => {
     return (
       <li key={image}>
-        <img
-          src={image}
-          width={itemWidth}
-          style={{ width: itemWidth }}
-          alt={image.split('.')[0]}
-        />
+        <img src={image} style={{ width: itemWidth }} alt={image} />
       </li>
     );
   });

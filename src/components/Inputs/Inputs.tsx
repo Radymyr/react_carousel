@@ -62,6 +62,7 @@ const Inputs: React.FC<Props> = ({
         className="input"
         onChange={setAnimationDuration}
       />
+      <label htmlFor="infinity">Infinity</label>
       <input
         type="checkbox"
         id="infinity"

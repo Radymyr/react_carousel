@@ -47,69 +47,54 @@ class App extends React.Component<{}, State> {
   };
 
   setWidth = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newWidth = parseInt(e.target.value, 10);
+    const userWidth = parseInt(e.target.value, 10);
 
     const MAX_WIDTH = screen.width / 4;
     const MIN_WIDTH = 10;
 
-    if (!isNaN(newWidth)) {
-      const clampedWidth = Math.max(MIN_WIDTH, Math.min(newWidth, MAX_WIDTH));
+    if (!isNaN(userWidth)) {
+      const clampedWidth = Math.max(MIN_WIDTH, Math.min(userWidth, MAX_WIDTH));
 
       this.setState({ itemWidth: clampedWidth });
     }
   };
 
   setFrameSize = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSize = parseInt(e.target.value, 10);
+    const userSize = parseInt(e.target.value, 10);
     const MAX_SIZE = this.state.images.length;
     const MIN_SIZE = 1;
 
-    if (!isNaN(newSize)) {
-      this.setState({ frameSize: newSize });
-    }
+    if (!isNaN(userSize)) {
+      const clampedSize = Math.max(MIN_SIZE, Math.min(userSize, MAX_SIZE));
 
-    if (newSize > MAX_SIZE) {
-      this.setState({ frameSize: MAX_SIZE });
-    }
-
-    if (newSize < MIN_SIZE) {
-      this.setState({ frameSize: MIN_SIZE });
+      this.setState({ frameSize: clampedSize });
     }
   };
 
   setStep = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newStep = parseInt(e.target.value, 10);
+    const userStep = parseInt(e.target.value, 10);
     const MAX_STEP = this.state.images.length;
     const MIN_STEP = 1;
 
-    if (!isNaN(newStep)) {
-      this.setState({ step: newStep });
-    }
+    if (!isNaN(userStep)) {
+      const clampedStep = Math.max(MIN_STEP, Math.min(userStep, MAX_STEP));
 
-    if (newStep > MAX_STEP) {
-      this.setState({ step: MAX_STEP });
-    }
-
-    if (newStep < MIN_STEP) {
-      this.setState({ step: MIN_STEP });
+      this.setState({ step: clampedStep });
     }
   };
 
   setAnimationDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newDuration = parseInt(e.target.value, 10);
+    const userDuration = parseInt(e.target.value, 10);
     const MAX_DURATION = 10000;
     const MIN_DURATION = 200;
 
-    if (!isNaN(newDuration)) {
-      this.setState({ animationDuration: newDuration });
-    }
+    if (!isNaN(userDuration)) {
+      const clampedDuration = Math.max(
+        MIN_DURATION,
+        Math.min(userDuration, MAX_DURATION),
+      );
 
-    if (newDuration > MAX_DURATION) {
-      this.setState({ animationDuration: MAX_DURATION });
-    }
-
-    if (newDuration < MIN_DURATION) {
-      this.setState({ animationDuration: MIN_DURATION });
+      this.setState({ animationDuration: clampedDuration });
     }
   };
 
